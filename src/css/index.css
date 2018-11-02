@@ -183,7 +183,8 @@ html {
   -ms-flex-direction: column;
   flex-direction: column;
   font-size: 0.32rem;
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
 
 header {
   width: 100%;
@@ -283,8 +284,9 @@ section {
 
 .banner {
   width: 100%;
-  height: 2.4rem;
+  height: 2.50667rem;
   background: url("../img/banner.png") no-repeat center;
+  background-size: 100%;
   border-bottom: 1px solid #ccc;
   border-top: 1px solid #ccc; }
 
@@ -379,7 +381,7 @@ section {
   flex-direction: column;
   background: #fff; }
 
-.box {
+.product dl {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -387,79 +389,32 @@ section {
   display: -webkit-flex;
   /* NEW - Chrome */
   width: 100%;
-  -webkit-box-flex: 1;
-  -ms-flex: 1 1 0%;
-  flex: 1 1 0%;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  position: relative; }
-
-.img {
-  width: 100%;
-  height: pxTorm(188px);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  /* NEW, Spec - Opera 12.1, Firefox 20+ */
-  display: -webkit-flex;
-  /* NEW - Chrome */
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center; }
-
-.box dl {
-  width: 100%;
-  height: pxTorm(128px);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  /* NEW, Spec - Opera 12.1, Firefox 20+ */
-  display: -webkit-flex;
-  /* NEW - Chrome */
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 0 0.26667rem;
+  height: 4rem;
+  border-bottom: 1px solid #CCC;
+  padding-right: 0.26667rem;
   -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
   -o-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center; }
-  .box dl dt {
-    width: 5.86667rem;
-    height: 4.26667rem;
-    text-align: left;
-    font-size: 0.8rem;
-    padding: 0.26667rem 0.26667rem;
-    -webkit-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box; }
-  .box dl img {
-    height: 2.13333rem;
-    vertical-align: middle; }
-  .box dl dd {
+  .product dl dt {
+    width: 3.73333rem;
+    height: 4.8rem; }
+  .product dl img {
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-top: 0.53333rem; }
+  .product dl dd {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 0%;
     flex: 1 1 0%;
-    height: 1.6rem;
-    line-height: 0.53333rem;
-    font-size: 0.32rem;
-    text-align: center;
+    width: 8rem;
+    height: 4.8rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -474,14 +429,59 @@ section {
     -ms-flex-align: center;
     align-items: center; }
 
-.title {
-  height: 1.6rem;
-  line-height: 0.58667rem;
-  font-size: 0.42667rem; }
+h2 {
+  height: 0.74667rem;
+  line-height: 0.74667rem; }
 
-.num {
+.left {
+  width: 6.13333rem;
+  margin-top: 0.26667rem;
+  margin-left: 0.26667rem;
+  text-align: left; }
+  .left h2 {
+    font-size: 0.53333rem; }
+  .left p {
+    font-size: 0.37333rem;
+    margin-top: 0.26667rem;
+    margin-bottom: 0.53333rem; }
+
+.isSh {
+  width: 100%;
+  line-height: 1.06667rem;
+  color: #666;
+  font-size: 0.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .isSh span {
+    font-size: 0.48rem;
+    color: #06c1ae; }
+  .isSh b {
+    color: #666;
+    font-size: 0.37333rem; }
+
+.pullDown {
   width: 100%;
   height: 0.8rem;
+  font-size: 0.37333rem;
+  text-align: center;
   line-height: 0.8rem;
-  font-size: 0.32rem;
-  color: #888999; }
+  position: absolute;
+  top: -50px; }
+
+.pullUp {
+  width: 100%;
+  height: 0.8rem;
+  font-size: 0.37333rem;
+  text-align: center;
+  line-height: 0.8rem;
+  position: absolute;
+  bottom: -50px; }

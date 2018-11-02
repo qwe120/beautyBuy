@@ -10,6 +10,7 @@ $height:100%;
     @include direction(column);
     font-size: pxTorem(12px);
     overflow: hidden;
+    position: relative;
 }
 
 header {
@@ -79,8 +80,9 @@ section {
 }
 .banner{
     width: 100%;
-    height: pxTorem(90px);
+    height: pxTorem(94px);
     background: url('../img/banner.png') no-repeat center;
+    background-size: 100%;
     border-bottom: 1px solid #ccc;
     border-top: 1px solid #ccc;
 }
@@ -142,77 +144,91 @@ section {
      @include direction(column);
      background: #fff;
 }
-.box{
+
+.product dl{
     @include box_flex;
     width: 100%;
-    @include flex;
+    height: pxTorem(150px);
+    border-bottom: 1px solid #CCC;
+    padding-right: pxTorem(10px);
+    @include sizing;
     @include justify(space-between);
-    // padding: 0 pxTorem(10px);
-    // @include sizing;
     @include align;
-    overflow: hidden;
-    @include direction(column);
-    position: relative;
-}
-.img{
-    width: 100%;
-    height: pxTorm(188px);
-    @include box_flex;
-    @include justify;
-    // padding: 0 pxTorem(10px);
-    // @include sizing;
-    @include align;
-}
-.box dl{
-    width: 100%;
-    height: pxTorm(128px);
-    @include box_flex;
-        @include justify(space-between);
-        padding: 0 pxTorem(10px);
-        @include sizing;
-        @include align;
     dt {
-    width: pxTorem(220px);
-    height: pxTorem(160px);
-    text-align: left;
-    font-size: pxTorem(30px);
-     padding: pxTorem(10px) pxTorem(10px);
-        @include sizing;
+        width: pxTorem(140px);
+        height: pxTorem(180px);
     }
-    img{
-        height: pxTorem(80px);
-        vertical-align: middle;
+    
+    img {
+        width: pxTorem(90px);
+        height: pxTorem(90px);
+        margin-top: pxTorem(20px);
     }
     dd {
     @include flex;
-    height: pxTorem(60px);
-    line-height: pxTorem(20px);
-    font-size: pxTorem(12px);
-    text-align: center;  
+    width: pxTorem(300px);
+    height: pxTorem(180px);
     @include box_flex;
     @include direction(column);
-    
-    // @include justify;
-    // padding: 0 pxTorem(10px);
-    // @include sizing;
     @include align;  
     
     }
 }
-.title{
-    height: pxTorem(60px);
-    line-height: pxTorem(22px);
-    font-size: pxTorem(16px);
+h2{
+    height: pxTorem(28px);
+    line-height: pxTorem(28px);
 }
-.num{
+.left {
+    width: pxTorem(230px);
+    margin-top: pxTorem(10px);
+    margin-left: pxTorem(10px);
+    text-align: left;
+    h2 {
+        font-size: pxTorem(20px);
+    }
+    p {
+        font-size: pxTorem(14px);
+        margin-top: pxTorem(10px);
+        margin-bottom: pxTorem(20px);
+    }
+    
+}
+.isSh {
+    width: 100%;
+    line-height: pxTorem(40px);
+    color: #666;
+    font-size: pxTorem(15px);
+    @include box_flex;
+    @include justify(space-around);
+    @include align;
+    span {
+        font-size: pxTorem(18px);
+        color: #06c1ae;
+    }
+    b {
+        color: #666;
+        font-size: pxTorem(14px);
+    }
+}
+
+.pullDown{
     width: 100%;
     height: pxTorem(30px);
+    font-size: pxTorem(14px);
+    text-align: center;
     line-height: pxTorem(30px);
-    font-size: pxTorem(12px);
-    color: #888999;
+    position: absolute;
+    top: -50px;
 }
-
-
+.pullUp{
+    width: 100%;
+    height: pxTorem(30px);
+    font-size: pxTorem(14px);
+    text-align: center;
+    line-height: pxTorem(30px);
+    position: absolute;
+    bottom: -50px;
+}
 
 
 

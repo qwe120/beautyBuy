@@ -12,7 +12,9 @@
 </head>
 <body>
     <div class="wrapper">
-        <header>
+        <div>
+            <div class="pullDown">下拉加载</div>
+            <header>
             <span>北京</span>
             <div class="search-inp">
                 <span class="iconfont icon-search"></span><input type="text" placeholder="输入商家/品类/商圈">
@@ -22,7 +24,7 @@
                 <dd>我的</dd>
             </dl>
         </header>
-        <section>
+        <section id="section">
             <div class="banner"></div>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
@@ -126,8 +128,29 @@
                 <div class="swiper-pagination"></div>
             </div>
             <div class="em"></div>
+            <div class="product">
+                <h2>猜你喜欢</h2>
+                <div class="pro-list">
+                    <!-- <dl>
+                        <dt>
+                            <img src="img/img1.png" alt="">
+                        </dt>
+                        <dd>
+                            <div class="title"></div>
+                            <p></p>
+                            <div class="num"></div>
+                        </dd>
+                    </dl> -->
+                </div>
+            </div>
         </section>
+        <div class="pullUp">上拉加载</div>
+        </div>
     </div>
+<script src="js/flexible.js"></script>
+<script src="js/better-scroll.js"></script>
+<script src="js/zepto.js"></script>
+<script src="js/ajax.js"></script>
     <script>
         var mySwiper = new Swiper('.swiper-container', {
             pagination:{
@@ -135,6 +158,45 @@
                 clickable:true
             }
         });
+        var bscroll = new BScroll('.wrapper', {
+            probeType: 2,
+            click: true,
+            scrollbar: true
+        }); 
+        init();
+        function init() {
+            ajax({
+                url:'/api/load',
+                type:'post',
+                data:{},
+                success: function (data) {
+                    render(data.data);
+                }
+            });
+        }
+        function render(data) {
+            var html = '';
+            data.forEach(function (file) {
+                html +=`<dl>
+                        <dt>
+                            <img src="${file.img}" alt="">
+                        </dt>
+                        <dd>
+                            <div class="left">
+                                <h2>${file.tilte}</h2>
+                                <p>${file.city}</p>
+                                
+                                <div class="isSh">
+                                    <span>${file.price}</span> <b>${file.mPrice}</b>
+                                    <p>${file.pro}</p>
+                                </div>
+                            </div>
+                            
+                        </dd>
+                    </dl>`;
+            });
+            $('.pro-list').append(html);
+        }
     </script>
 </body>
 </html>
