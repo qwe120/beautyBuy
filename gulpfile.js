@@ -45,15 +45,11 @@ gulp.task('server', function () {
             
             if (/^\/api/.test(pathname)) { // 接口
                 if (pathname === '/api/load') {
-                    // get
-                    // var key = url.parse(req.url, true).query.key;
-                    var target = [];
-                    data.forEach(function(item){
-                        // if (item.name.match(key)!=null && item.name.match(key)) {
-                        //     target.push(item);
-                        // }
-                    });
-                    res.end(JSON.stringify({code:0, data: data}));
+                    var page = req.body.page;
+                     
+                    var msg = data.slice((page-1)*5,page*5);
+                    console.log(msg);
+                    res.end(JSON.stringify({code:0, data: msg}));
                 } 
             }else {
                 // 读文件

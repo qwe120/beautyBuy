@@ -163,12 +163,13 @@
             click: true,
             scrollbar: true
         }); 
-        init();
-        function init() {
+        var page = 1;
+        init(page);
+        function init(page) {
             ajax({
                 url:'/api/load',
                 type:'post',
-                data:{},
+                data:{page: page},
                 success: function (data) {
                     render(data.data);
                 }
@@ -196,6 +197,39 @@
                     </dl>`;
             });
             $('.pro-list').append(html);
+        }
+        bscroll.on('scroll', function () {
+            if (this.y < this.maxScrollY - 50) {
+                $('.pullUp').html('加载全部').addClass('flid');
+            } else if (this.y < this.maxScrollY - 30) {
+                $('.pullUp').html('上拉加载').removeClass('flid');
+            }
+            if (this.y > 50) {
+                $('.pullDown').html('刷新全部').addClass('flid');
+            } else if (this.y > 30) {
+                $('.pullDown').html('上拉刷新').removeClass('flid');
+            }
+        });
+        bscroll.on('scrollEnd', function () {
+            if ($('.pullUp').hasClass('flid')) {
+                $('.pullUp').html('上拉加载').removeClass('flid');
+                pullUp();
+            } else if ($('.pullDown').hasClass('flid')) {
+                $('.pullDown').html('下拉刷新').removeClass('flid');
+                pullDown();
+            }
+        });
+        function pullUp() {
+            page++;
+            if (page>2) {
+                page = 1;
+            }
+            init(page);
+        }
+        function pullDown() {
+            $('.pro-list').html('');
+            page = 1;
+            init(page);
         }
     </script>
 </body>
